@@ -1,0 +1,21 @@
+<h2>Panel de Administración</h2>
+<h3>Productos</h3>
+<ul>
+    {% for producto in productos %}
+    <li>{{ producto.nombre }} - <a href="{% url 'editar_producto' producto.id %}">Editar</a> - <a href="{% url 'eliminar_producto' producto.id %}">Eliminar</a></li>
+    {% endfor %}
+</ul>
+
+<h3>Pedidos</h3>
+<ul>
+    {% for pedido in pedidos %}
+    <li>Pedido {{ pedido.id }} - Usuario: {{ pedido.usuario.username }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Pagos</h3>
+<ul>
+    {% for pago in pagos %}
+    <li>Pago {{ pago.id }} - Monto: {{ pago.monto }} - Estado: {{ pago.get_estado_display }}</li>
+    {% endfor %}
+</ul>

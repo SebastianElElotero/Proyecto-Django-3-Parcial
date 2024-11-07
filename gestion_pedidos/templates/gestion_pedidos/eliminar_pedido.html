@@ -1,0 +1,6 @@
+<h2>¿Seguro que quieres eliminar el Pedido {{ pedido.id }}?</h2>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Eliminar</button>
+</form>
+<a href="{% url 'listar_pedidos' %}">Cancelar</a>

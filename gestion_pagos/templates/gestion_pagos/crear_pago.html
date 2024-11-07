@@ -1,0 +1,7 @@
+<h2>{% if form.instance.pk %}Editar{% else %}Realizar{% endif %} Pago</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if form.instance.pk %}Actualizar{% else %}Realizar{% endif %} Pago</button>
+</form>
+<a href="{% url 'listar_pagos' %}">Regresar a la lista de pagos</a>

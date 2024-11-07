@@ -1,0 +1,11 @@
+<h2>Lista de Productos</h2>
+<a href="{% url 'gestion_productos:agregar_producto' %}">Agregar Producto</a>
+<ul>
+    {% for producto in productos %}
+    <li>
+        {{ producto.nombre }} - {{ producto.precio }} 
+        <a href="{% url 'gestion_productos:editar_producto' producto.id %}">Editar</a>
+        <a href="{% url 'gestion_productos:eliminar_producto' producto.id %}">Eliminar</a>
+    </li>
+    {% endfor %}
+</ul>

@@ -1,0 +1,7 @@
+<h2>{% if form.instance.pk %}Actualizar{% else %}Agregar{% endif %} Producto al Carrito</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if form.instance.pk %}Actualizar{% else %}Agregar{% endif %} Producto</button>
+</form>
+<a href="{% url 'ver_carrito' %}">Regresar al carrito</a>

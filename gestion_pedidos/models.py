@@ -1,6 +1,6 @@
 from django.db import models
 from gestion_productos.models import Producto
-from gestion_usuarios.models import Usuario  # Asegúrate de que tienes un modelo de usuario
+from django.contrib.auth.models import User  # Asegúrate de que tienes un modelo de usuario
 
 class Pedido(models.Model):
     ESTADOS_PEDIDO = [
@@ -10,7 +10,7 @@ class Pedido(models.Model):
         ('A', 'Anulado'),
     ]
 
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     fecha_pedido = models.DateTimeField(auto_now_add=True)
     estado = models.CharField(max_length=1, choices=ESTADOS_PEDIDO, default='P')
 

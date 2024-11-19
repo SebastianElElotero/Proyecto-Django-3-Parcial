@@ -1,10 +1,10 @@
 <h2>Lista de Pagos</h2>
-<a href="{% url 'crear_pago' %}">Realizar Pago</a>
+<a href="{% url 'gestion_pagos:crear_pago' %}">Realizar Pago</a>
 <ul>
     {% for pago in pagos %}
     <li>
         Pago {{ pago.id }} - Pedido: {{ pago.pedido.id }} - Monto: {{ pago.monto }} - Estado: {{ pago.get_estado_display }} 
-        <a href="{% url 'editar_pago' pago.id %}">Editar</a>
+        <a href="{% url 'gestion_pagos:editar_pago' pago.id %}">Editar</a>
     </li>
     {% endfor %}
 </ul>

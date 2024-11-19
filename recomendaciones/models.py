@@ -1,9 +1,9 @@
 from django.db import models
 from gestion_productos.models import Producto
-from gestion_usuarios.models import Usuario
+from django.contrib.auth.models import User
 
 class Recomendacion(models.Model):
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     fecha_recomendacion = models.DateTimeField(auto_now_add=True)
 

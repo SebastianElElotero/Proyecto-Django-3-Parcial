@@ -1,12 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Pedido, ItemPedido
 from .forms import PedidoForm, ItemPedidoForm
-from gestion_usuarios.models import Usuario
+from django.contrib.auth.models import User
 from gestion_productos.models import Producto
 
 # Listar pedidos
 def listar_pedidos(request):
-    pedidos = Pedido.objects.filter(usuario=request.user)
+    pedidos = Pedido.objects.filter()
     return render(request, 'gestion_pedidos/listar_pedidos.html', {'pedidos': pedidos})
 
 # Crear un nuevo pedido

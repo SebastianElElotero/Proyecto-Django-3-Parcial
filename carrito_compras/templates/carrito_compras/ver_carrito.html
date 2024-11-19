@@ -3,8 +3,8 @@
     {% for item in carrito.items.all %}
     <li>
         {{ item.cantidad }} x {{ item.producto.nombre }} - Subtotal: {{ item.subtotal }} 
-        <a href="{% url 'actualizar_item_carrito' item.id %}">Actualizar</a>
-        <a href="{% url 'eliminar_item_carrito' item.id %}">Eliminar</a>
+        <a href="{% url 'carrito_compras:actualizar_item_carrito' item.id %}">Actualizar</a>
+        <a href="{% url 'carrito_compras:eliminar_item_carrito' item.id %}">Eliminar</a>
     </li>
     {% endfor %}
 </ul>

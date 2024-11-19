@@ -6,6 +6,7 @@ from gestion_productos.models import Producto
 
 # Ver el carrito
 def ver_carrito(request):
+    print(type(request.user))
     carrito, created = Carrito.objects.get_or_create(usuario=request.user)
     return render(request, 'carrito_compras/ver_carrito.html', {'carrito': carrito})
 

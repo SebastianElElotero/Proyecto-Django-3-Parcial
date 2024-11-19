@@ -4,4 +4,4 @@
     {{ form.as_p }}
     <button type="submit">{% if form.instance.pk %}Actualizar{% else %}Realizar{% endif %} Pago</button>
 </form>
-<a href="{% url 'listar_pagos' %}">Regresar a la lista de pagos</a>
+<a href="{% url 'gestion_pagos:listar_pagos' %}">Regresar a la lista de pagos</a>

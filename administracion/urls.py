@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+app_name = "administracion"
 
 urlpatterns = [
     path('panel/', views.panel_administracion, name='panel_administracion'),

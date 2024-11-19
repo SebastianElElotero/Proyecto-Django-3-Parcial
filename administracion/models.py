@@ -1,8 +1,8 @@
 from django.db import models
-from gestion_usuarios.models import Usuario
+from django.contrib.auth.models import User
 
 class Administrador(models.Model):
-    usuario = models.OneToOneField(Usuario, on_delete=models.CASCADE)
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     rol = models.CharField(max_length=50, default='Administrador')
 
     def __str__(self):

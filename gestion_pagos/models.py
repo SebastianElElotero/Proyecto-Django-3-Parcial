@@ -1,5 +1,5 @@
 from django.db import models
-from gestion_usuarios.models import Usuario
+from django.contrib.auth.models import User
 from gestion_pedidos.models import Pedido
 
 class Pago(models.Model):
@@ -15,7 +15,7 @@ class Pago(models.Model):
         ('F', 'Fallido'),
     ]
 
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
     monto = models.DecimalField(max_digits=10, decimal_places=2)
     metodo_pago = models.CharField(max_length=1, choices=METODOS_PAGO)

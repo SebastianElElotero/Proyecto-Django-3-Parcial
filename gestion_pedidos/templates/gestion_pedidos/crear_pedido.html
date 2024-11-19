@@ -4,4 +4,4 @@
     {{ form.as_p }}
     <button type="submit">{% if form.instance.pk %}Actualizar{% else %}Crear{% endif %}</button>
 </form>
-<a href="{% url 'listar_pedidos' %}">Regresar a la lista de pedidos</a>
+<a href="{% url 'gestion_pedidos:listar_pedidos' %}">Regresar a la lista de pedidos</a>

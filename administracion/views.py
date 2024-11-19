@@ -10,7 +10,6 @@ def es_administrador(user):
     return hasattr(user, 'administrador')
 
 # Vista del panel de administración
-@user_passes_test(es_administrador)
 def panel_administracion(request):
     productos = Producto.objects.all()
     pedidos = Pedido.objects.all()

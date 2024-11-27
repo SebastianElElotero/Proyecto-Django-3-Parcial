@@ -1,0 +1,7 @@
+<h2>{% if form.instance.pk %}Editar{% else %}Agregar{% endif %} Producto</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if form.instance.pk %}Actualizar{% else %}Agregar{% endif %}</button>
+</form>
+<a href="{% url 'gestion_productos:listar_productos' %}">Regresar a la lista de productos</a>

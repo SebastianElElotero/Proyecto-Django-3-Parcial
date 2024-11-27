@@ -1,0 +1,12 @@
+<h2>Lista de Pedidos</h2>
+<a href="{% url 'gestion_pedidos:crear_pedido' %}">Crear Pedido</a>
+<ul>
+    {% for pedido in pedidos %}
+    <li>
+        Pedido {{ pedido.id }} - Estado: {{ pedido.get_estado_display }} 
+        <a href="{% url 'gestion_pedidos:editar_pedido' pedido.id %}">Editar</a>
+        <a href="{% url 'gestion_pedidos:eliminar_pedido' pedido.id %}">Eliminar</a>
+        <a href="{% url 'gestion_pedidos:agregar_item_pedido' pedido.id %}">Agregar Item</a>
+    </li>
+    {% endfor %}
+</ul>

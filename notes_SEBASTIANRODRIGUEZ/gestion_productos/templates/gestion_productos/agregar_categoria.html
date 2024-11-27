@@ -1,0 +1,7 @@
+<h2>Agregar Categoría</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Agregar</button>
+</form>
+<a href="{% url 'gestion_productos:listar_categorias

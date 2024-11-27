@@ -1,0 +1,7 @@
+<h2>{% if form.instance.pk %}Editar{% else %}Crear{% endif %} Pedido</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if form.instance.pk %}Actualizar{% else %}Crear{% endif %}</button>
+</form>
+<a href="{% url 'gestion_pedidos:listar_pedidos' %}">Regresar a la lista de pedidos</a>

@@ -1,9 +1,14 @@
 <h2>Recomendaciones para ti</h2>
 <ul>
-    {% for producto in recomendaciones %}
-    <li>
-        {{ producto.nombre }} - Precio: {{ producto.precio }}
-        <a href="{% url 'carrito_compras:agregar_al_carrito' producto.id %}">Agregar al carrito</a>
-    </li>
-    {% endfor %}
+    {% if recomendaciones %}
+        {% for producto in recomendaciones %}
+            <li>
+                {{ producto.nombre }} - Precio: {{ producto.precio }}
+                <a href="{% url 'carrito_compras:agregar_al_carrito' producto.id %}">Agregar al carrito</a>
+            </li>
+        {% endfor %}
+    {% else %}
+        <li>No hay recomendaciones disponibles.</li>
+    {% endif %}
 </ul>
+

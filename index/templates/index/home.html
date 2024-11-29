@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+</head>
+<body>
+    <h1>Bienvenido al Proyecto</h1>
+    <ul>
+        <li><a href="{% url 'administracion:panel_administracion' %}">Administración</a></li>
+        <li><a href="{% url 'carrito_compras:ver_carrito' %}">Carrito de Compras</a></li>
+        <li><a href="{% url 'gestion_pagos:listar_pagos' %}">Gestión de Pagos</a></li>
+        <li><a href="{% url 'gestion_pedidos:listar_pedidos' %}">Gestión de Pedidos</a></li>
+        <li><a href="{% url 'gestion_productos:listar_productos' %}">Gestión de Productos</a></li>
+        <li><a href="{% url 'recomendaciones:ver_recomendaciones' %}">Recomendaciones</a></li>
+    </ul>
+</body>
+</html>

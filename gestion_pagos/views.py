@@ -15,7 +15,7 @@ def crear_pago(request):
             pago = form.save(commit=False)
             pago.usuario = request.user
             pago.save()
-            return redirect('listar_pagos')
+            return redirect('gestion_pagos:listar_pagos')
     else:
         form = PagoForm()
     return render(request, 'gestion_pagos/crear_pago.html', {'form': form})
@@ -27,7 +27,7 @@ def editar_pago(request, pago_id):
         form = PagoForm(request.POST, instance=pago)
         if form.is_valid():
             form.save()
-            return redirect('listar_pagos')
+            return redirect('gestion_pagos:listar_pagos')
     else:
         form = PagoForm(instance=pago)
     return render(request, 'gestion_pagos/editar_pago.html', {'form': form})

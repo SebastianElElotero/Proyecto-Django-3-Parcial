@@ -29,7 +29,7 @@ def editar_pedido(request, pedido_id):
         form = PedidoForm(request.POST, instance=pedido)
         if form.is_valid():
             form.save()
-            return redirect('listar_pedidos')
+            return redirect('gestion_pedidos:listar_pedidos')
     else:
         form = PedidoForm(instance=pedido)
     return render(request, 'gestion_pedidos/editar_pedido.html', {'form': form})
@@ -39,7 +39,7 @@ def eliminar_pedido(request, pedido_id):
     pedido = get_object_or_404(Pedido, id=pedido_id)
     if request.method == 'POST':
         pedido.delete()
-        return redirect('listar_pedidos')
+        return redirect('gestion_pedidos:listar_pedidos')
     return render(request, 'gestion_pedidos/eliminar_pedido.html', {'pedido': pedido})
 
 # Agregar items a un pedido

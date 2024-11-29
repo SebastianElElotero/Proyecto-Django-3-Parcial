@@ -20,7 +20,7 @@ def agregar_al_carrito(request, producto_id):
         form = ItemCarritoForm(request.POST, instance=item)
         if form.is_valid():
             form.save()
-            return redirect('ver_carrito')
+            return redirect('carrito_compras:ver_carrito')
     else:
         form = ItemCarritoForm(instance=item)
     return render(request, 'carrito_compras/agregar_al_carrito.html', {'form': form, 'producto': producto})
@@ -32,7 +32,7 @@ def actualizar_item_carrito(request, item_id):
         form = ItemCarritoForm(request.POST, instance=item)
         if form.is_valid():
             form.save()
-            return redirect('ver_carrito')
+            return redirect('carrito_compras:ver_carrito')
     else:
         form = ItemCarritoForm(instance=item)
     return render(request, 'carrito_compras/actualizar_item_carrito.html', {'form': form})
@@ -42,5 +42,5 @@ def eliminar_item_carrito(request, item_id):
     item = get_object_or_404(ItemCarrito, id=item_id)
     if request.method == 'POST':
         item.delete()
-        return redirect('ver_carrito')
+        return redirect('carrito_compras:ver_carrito')
     return render(request, 'carrito_compras/eliminar_item_carrito.html', {'item': item})

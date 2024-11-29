@@ -21,23 +21,23 @@ def panel_administracion(request):
     })
 
 # Vista para editar productos
-@user_passes_test(es_administrador)
+#@user_passes_test(es_administrador)
 def editar_producto(request, producto_id):
     producto = get_object_or_404(Producto, id=producto_id)
     if request.method == 'POST':
         form = ProductoForm(request.POST, instance=producto)
         if form.is_valid():
             form.save()
-            return redirect('panel_administracion')
+            return redirect('administracion:panel_administracion')
     else:
         form = ProductoForm(instance=producto)
     return render(request, 'administracion/editar_producto.html', {'form': form})
 
 # Vista para eliminar productos
-@user_passes_test(es_administrador)
+#@user_passes_test(es_administrador)
 def eliminar_producto(request, producto_id):
     producto = get_object_or_404(Producto, id=producto_id)
     if request.method == 'POST':
         producto.delete()
-        return redirect('panel_administracion')
+        return redirect('administracion:panel_administracion')
     return render(request, 'administracion/eliminar_producto.html', {'producto': producto})

@@ -17,12 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.contrib import admin
+from django.urls import path, include
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+     path('', include('index.urls')),  # Página principal
     path('gestion_productos/', include('gestion_productos.urls')),
     path('gestion_pedidos/', include('gestion_pedidos.urls')),
     path('gestion_pagos/', include('gestion_pagos.urls')),
     path('carrito_compras/', include('carrito_compras.urls')),
     path('recomendaciones/', include('recomendaciones.urls')),
-    path('administracion/', include('administracion.urls')),  # Incluye las URLs de administracion
+    path('administracion/', include('administracion.urls')),
 ]
+

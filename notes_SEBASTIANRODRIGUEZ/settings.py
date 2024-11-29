@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'index',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -61,7 +62,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
-        'APP_DIRS': True,
+        'APP_DIRS': True,  # Asegúrate de que esto esté en True
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -73,6 +74,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'notes_SEBASTIANRODRIGUEZ.wsgi.application'
 
 
@@ -82,10 +84,15 @@ WSGI_APPLICATION = 'notes_SEBASTIANRODRIGUEZ.wsgi.application'
 # settings.py
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',  # Cambia a 'django.db.backends.postgresql' si usas PostgreSQL
-        'NAME': BASE_DIR / 'db.sqlite3',  # Si usas PostgreSQL, cambia esto a tu base de datos
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'proyecto',  # Nombre de la base de datos
+        'USER': 'root',            # Usuario por defecto en XAMPP
+        'PASSWORD': '',            # Contraseña, por defecto en XAMPP es vacía
+        'HOST': '127.0.0.1',       # Dirección del servidor MySQL
+        'PORT': '3306',            # Puerto por defecto de MySQL
     }
 }
+
 
 
 # Password validation
